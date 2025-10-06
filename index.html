@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      color: #222;
+      background-color: #fff;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo img {
+      width: 40px;
+    }
+
+    nav {
+      transition: all 0.4s ease;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .quote-btn {
+      background: #ff2e55;
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quote-btn:hover {
+      background: #e0244b;
+    }
+
+    /* Hamburger Icon */
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #222;
+      background: none;
+      border: none;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 80px;
+      background: #ffe8ec;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #ff2e55;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      max-width: 550px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .hero-buttons button {
+      padding: 12px 22px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #ff2e55;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #ff2e55;
+      border: 2px solid #ff2e55;
+    }
+
+    .hero-img {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-img img {
+      width: 320px;
+      border-radius: 10px;
+    }
+
+    .rating, .resume-count {
+      position: absolute;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .rating {
+      top: 10%;
+      left: 0;
+    }
+
+    .rating span {
+      color: #f4b400;
+    }
+
+    .resume-count {
+      bottom: 10%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .resume-count img {
+      width: 30px;
+    }
+
+    /* ===== WHAT YOU GET ===== */
+    .what-you-get {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .what-you-get h3 {
+      background: #ffe8ec;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      color: #ff2e55;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .what-you-get h2 {
+      font-size: 28px;
+      margin-bottom: 50px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    .feature img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .feature h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* ===== TRUSTED BY ===== */
+    .trusted-by {
+      text-align: center;
+      padding: 80px 20px;
+      background: #fff;
+    }
+
+    .trusted-by h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 40px;
+    }
+
+    .trusted-by .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .logo-box {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px 30px;
+      width: 160px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .logo-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo-box img {
+      max-width: 100px;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      header {
+        padding: 20px 40px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        order: 2;
+      }
+
+      .hero-img {
+        order: 1;
+        margin-bottom: 30px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 25px;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-300px);
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        opacity: 0;
+      }
+
+      nav.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+        text-align: center;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      nav ul li a {
+        font-size: 18px;
+        color: #222;
+      }
+
+      .hero-text h1 {
+        font-size: 28px;
+      }
+
+      .logo-box {
+        width: 130px;
+        height: 90px;
+        padding: 15px;
+      }
+
+      .trusted-by h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/40x40?text=Logo" alt="Company Logo">
+      <h3>COMPANY <span style="font-weight:400;color:#777;">business tagline</span></h3>
+    </div>
+
+    <button class="menu-icon" onclick="toggleMenu()">☰</button>
+
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <button class="quote-btn">Get A Quote</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Your Resume <span>Deserves A Yes</span> Let’s Make It Happen</h1>
+      <p>If your resume isn’t getting responses, it’s time for an upgrade. Get an ATS-optimized resume crafted by HR experts to help you land more interviews.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Resume Packages</button>
+        <button class="btn-secondary">Contact Us</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="hero.png" alt="hero">
+      <div class="rating">⭐ 4.9 Instructor Rating</div>
+      <div class="resume-count">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+        260+ Online Resumes Created
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="what-you-get">
+    <h3>What You Get</h3>
+    <h2>You’re Not Just <span style="color:#ff2e55;">Another Applicant</span> And Your Resume Shouldn’t Look Like One</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+        <h4>A Resume Format That Gets You Interviews</h4>
+        <p>Get a professionally written, keyword-optimized resume that lands in recruiter inboxes.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="">
+        <h4>A Cover Letter Style That Stands Out Strong</h4>
+        <p>Stand out with a cover letter that speaks directly to the role and reflects your strengths.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="">
+        <h4>A LinkedIn Profile That Works For You</h4>
+        <p>Attract the right eyes, start conversations, and show up in recruiter searches.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063828.png" alt="">
+        <h4>An Interview Strategy That Builds Confidence</h4>
+        <p>Interview preparation with real HR professionals so you speak clearly and confidently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <section class="trusted-by">
+    <h2>Trusted By Top Companies</h2>
+    <div class="logos">
+      <div class="logo-box">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google">
+      </div>
+      <div class="logo-box">
+        <img src="https://www.svgrepo.com/show/475661/linkedin-color.svg" alt="LinkedIn">
+      </div>
+      <div class="logo-box">
+        <img src="https://www.svgrepo.com/show/475659/amazon-color.svg" alt="Amazon">
+      </div>
+      <div class="logo-box">
+        <img src="https://www.svgrepo.com/show/475689/spotify-color.svg" alt="Spotify">
+      </div>
+      <div class="logo-box">
+        <img src="https://www.svgrepo.com/show/475678/netflix-color.svg" alt="Netflix">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
